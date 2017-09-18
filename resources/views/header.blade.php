@@ -17,6 +17,7 @@
                     @else
                         <li><a href="{{route('dangnhap')}}">Đăng nhập</a></li>
                         <li><a href="{{route('dangki')}}">Đăng kí</a></li>
+                        <li><a href="{{route('getadminlogin')}}">Admin</a></li>
                     @endif
                 </ul>
             </div>

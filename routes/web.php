@@ -47,6 +47,19 @@ Route::get('del-cart/{id}',[
 //Route::get('view-dat-hang', function (){
 //    return view('page.dat_hang');
 //});
+Route::get('admin-dangnhap',[
+    'as'=>'getadminlogin',
+    'uses'=> 'UserController@getLogin'
+    ]);
+Route::post('admin-dangnhap',[
+    'as'=>'postadminlogin',
+    'uses'=>'UserController@postLogin'
+]);
+Route::get('admin-logout',[
+    'as'=> 'adminlogout',
+    'as'=>'UserController@getLogout'
+]);
+
 Route::get('view-dat-hang',[
     'as'=>'viewdathang',
     'uses'=>'PageController@getCheckout'
@@ -81,7 +94,7 @@ Route::get('search',[
     'uses'=>'PageController@getSearch'
 ]);
 
-Route::group(['prefix'=>'admin'],function (){
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function (){
     Route::group(['prefix'=>'theloai'],function (){
         //admin/theloai/list-theloai
         Route::get('list-theloai',[
